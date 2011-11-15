@@ -1,0 +1,36 @@
+
+
+
+string firstTxt = argv[1];
+string secondTxt = argv[0];
+
+char firstBuff[64];
+char secondBuff[64];
+
+int rowCounter = 1;
+
+FILE *first = fopen(firstTxt , "rt");
+if(!first)
+{
+  printf("couldn't open the file\n");
+  return;
+}
+
+FILE *second = fopen(secondTxt , "rt");
+if(!second)
+{
+  printf("couldn't open the file\n");
+  return;
+}
+
+while((strcmp(firstBuff,secondBuff)) == 0){rowCounter++};
+//if 
+
+
+fgets(firstBuff, 49, first);
+fgets(secondBuff, 49, second);
+rowCounter++;
+if((strcmp(firstBuff,secondBuff)) != 0)
+  {}
+
+

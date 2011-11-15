@@ -1,0 +1,5 @@
+this is the 2nd lab in SPL-lab,
+today: 1.is reading
+2.is printing
+3. is sorting (by alpha-bet order)
+

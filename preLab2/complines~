@@ -1,0 +1,32 @@
+
+
+
+string firstTxt = argv[1];
+string secondTxt = argv[0];
+
+char firstBuff[64];
+char secondBuff[64];
+
+FILE *first = fopen(firstTxt , "rt");
+if(!first)
+{
+  /* Handle case where couldn't open file. */
+}
+
+FILE *second = fopen(secondTxt , "rt");
+if(!second)
+{
+  /* Handle case where couldn't open file. */
+}
+
+while((strcmp(firstBuff,secondBuff)) == 0){counter++};
+//if 
+
+
+fgets(firstBuff, 49, first);
+fgets(secondBuff, 49, second);
+counter++;
+if((strcmp(firstBuff,secondBuff)) != 0)
+  {}
+
+
