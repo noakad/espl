@@ -1,6 +1,6 @@
-canalyze: canalyze.o
-	gcc -o canalyze canalyze.o
+extendBcmp: extendBcmp.o
+	gcc -o extendBcmp extendBcmp.o
 
-canalyze.o: canalyze.c
-	gcc -c -o canalyze.o canalyze.c
+extendBcmp.o: extendBcmp.c
+	gcc -c -o extendBcmp.o extendBcmp.c
  
