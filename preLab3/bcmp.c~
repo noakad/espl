@@ -19,7 +19,6 @@ int main (int argc , char** argv)
 	//fseek(copy_to, write_offset, SEEK_SET);
 	//fseek(copy_from, read_offset, SEEK_SET);
 	
-	i = 1;
 	c1 = fgetc(file1);
 	c2 = fgetc(file2);
 	while((c1!=feof) ||(c2!=feof)){
