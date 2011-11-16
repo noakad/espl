@@ -1,5 +1,5 @@
-canalyze2: canalyze2.o
-	gcc -o canalyze2 canalyze2.o
+canalyze: canalyze.o
+	gcc -o canalyze canalyze.o
 
-canalyze2.o: canalyze2.c
-	gcc -c -o canalyze2.o canalyze2.c
+canalyze.o: canalyze.c
+	gcc -c -o canalyze.o canalyze.c
