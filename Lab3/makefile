@@ -1,6 +1,4 @@
-bfix: bfix.o
-	gcc -o bfix bfix.o
+bfix: bfix.o diff.o
 
-bfix.o: bfix.c
-	gcc -c -o bfix.o bfix.c
- 
+bfix.o: bfix.c diff.h
+diff.o: diff.c diff.h
