@@ -6,7 +6,8 @@ int main (int argc , char** argv)
 {
 
 
-	int i,c1,c2;
+	long i;
+	int c1,c2;
 	FILE* file1;
 	FILE* file2;
 	//char* buff1;
@@ -22,9 +23,9 @@ int main (int argc , char** argv)
 	i = 1;
 	c1 = fgetc(file1);
 	c2 = fgetc(file2);
-	while((c1!=feof) & (c2!=feof)){
+	while((c1!=EOF) && (c2!=EOF)){
 	if(c1!=c2){
-		printf("byte %d -%d +%d \n", i, c1,c2);
+		printf("byte %lu -%u +%u \n", i, c1,c2);
 		//break;
 	}
 	c1 = fgetc(file1);

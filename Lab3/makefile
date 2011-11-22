@@ -1,6 +1,6 @@
-extendBcmp: extendBcmp.o
-	gcc -o extendBcmp extendBcmp.o
+bfix: bfix.o
+	gcc -o bfix bfix.o
 
-extendBcmp.o: extendBcmp.c
-	gcc -c -o extendBcmp.o extendBcmp.c
+bfix.o: bfix.c
+	gcc -c -o bfix.o bfix.c
  
