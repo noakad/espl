@@ -9,9 +9,11 @@ int main(int argc, char *argv[])
         DIR             *dip;
         struct dirent   *dit; //ino_t  d_ino (file serial number)
 			     //char   d_name[]    name of entry
-        int             i = 0;
+        int i = 0;
+	int sz;
 	char *buf;
 	size_t size;
+	FILE* fp;
  
         // check to see if user entered the argumants OPTIONS and //directory name
         if (argv < 3)
@@ -32,16 +34,11 @@ int main(int argc, char *argv[])
 		printFiles(dip, dit, i);
         }
  
-        printf("Directory stream is now open\n");
- 
         /*  struct dirent *readdir(DIR *dir);
          *
          * Read in the files from argv[2] and print */
 	
-printFiles(dip, dit, i);
-        
- 
-        printf("\n\nreaddir() found a total of %i files\n", i);
+	printFiles(dip, dit, i);
  
         /* int closedir(DIR *dir);
          *
@@ -60,12 +57,18 @@ printFiles(dip, dit, i);
 
 
 printFiles(DIR  *dip, struct dirent *dit, int i){
+	printf("Directory stream is now open\n");
 	while ((dit = readdir(dip)) != NULL)
         {
                 i++;
 		if(strcmp(argv[1],"l") == 0){
-		  //print the size of the file
+		  fp = fopen(dit->d_name,r);
+		  fseek(fp, 0L, SEEK_END);
+		  sz = ftell(fp);
+		  fseek(fp, 0L, SEEK_SET);
+		  //i think its not a very good solution, because if someone is now reading or writing to this file' im changing the location of the poiner!
 		}
                 printf("\n%s", dit->d_name);
         }
+        printf("\n\nreaddir() found a total of %i files\n", i);
 }
