@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 	FILE* fp;
  
         // check to see if user entered the argumants OPTIONS and //directory name
-        if (argv < 3)
+        if (argc < 3)
         {
                 printf("Command missing args\n");
                 return 0;

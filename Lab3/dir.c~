@@ -62,6 +62,7 @@ printFiles(DIR  *dip, struct dirent *dit, int i){
         {
                 i++;
 		if(strcmp(argv[1],"l") == 0){
+		  fp = fopen(dit->d_name,r);
 		  fseek(fp, 0L, SEEK_END);
 		  sz = ftell(fp);
 		  fseek(fp, 0L, SEEK_SET);
