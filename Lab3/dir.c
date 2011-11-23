@@ -10,9 +10,11 @@ int main(int argc, char *argv[])
         struct dirent   *dit; //ino_t  d_ino (file serial number)
 			     //char   d_name[]    name of entry
         int             i = 0;
+	char *buf;
+	size_t size;
  
         // check to see if user entered the argumants OPTIONS and //directory name
-        if (argc < 3)
+        if (argv < 3)
         {
                 printf("Command missing args\n");
                 return 0;
@@ -24,8 +26,10 @@ int main(int argc, char *argv[])
          * it's a readable and valid (directory) */
         if ((dip = opendir(argv[2])) == NULL)
         {
-                perror("opendir");
-                return 0;
+		printf("directory name is not specified - printing names of current dir\n");
+		getcwd(buf, size);
+		dip = opendir(argv[2]);
+		printFiles(dip, dit, i);
         }
  
         printf("Directory stream is now open\n");
@@ -33,11 +37,9 @@ int main(int argc, char *argv[])
         /*  struct dirent *readdir(DIR *dir);
          *
          * Read in the files from argv[2] and print */
-        while ((dit = readdir(dip)) != NULL)
-        {
-                i++;
-                printf("\n%s", dit->d_name);
-        }
+	
+printFiles(dip, dit, i);
+        
  
         printf("\n\nreaddir() found a total of %i files\n", i);
  
@@ -53,3 +55,17 @@ int main(int argc, char *argv[])
         printf("\nDirectory stream is now closed\n");
         return 1;
 } 
+
+
+
+
+printFiles(DIR  *dip, struct dirent *dit, int i){
+	while ((dit = readdir(dip)) != NULL)
+        {
+                i++;
+		if(strcmp(argv[1],"l") == 0){
+		  //print the size of the file
+		}
+                printf("\n%s", dit->d_name);
+        }
+}
