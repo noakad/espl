@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <assert.h>
+#include <string.h>
 
 int main(int argc, char **argv) {
 int a, op, b, c;
@@ -10,9 +11,9 @@ fprintf(stderr, "usage: calc <number> [+|-|*|/] <number>\n");
 exit(1);
 }
 
-a = atod(argv[1]);//this I need to write
+a = ato(argv[1]);//this I need to write
 op = argv[2][0];
-b = atod(argv[3]);
+b = ato(argv[3]);
 switch(op) {
 case '+': c = a + b; break;
 case '-': c = a - b; break;

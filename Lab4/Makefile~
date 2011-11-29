@@ -1,10 +1,19 @@
+%.o: %.asm
+nasm -g -f elf -o $@ $<
+.PHONY: clean all
+
+all: callasm calc
+
 callasm: callasm.o hsvmhr.o
-	gcc -m32 -o callasm callasm.o
+$(CC) -m32 $(LDFLAGS) -o $@ $^
 
+calc: calc.o ato.o
+$(CC) $(LDFLAGS) -o $@ $^
 callasm.o: callasm.c
-	gcc -m32 -c -o callasm.o callasm.c
-	
-hsvmhr.o: hsvmhr.asm
-	nasm -g -f elf -o hsvmhr.o hsvmhr.asm
+$(CC) -m32 $(CFLAGS) -c -o $@ $<
 
+calc.o: calc.c
+$(CC) $(CFLAGS) -c -o $@ $<
+clean:
+rm -f callasm calc callasm.o calc.o
 
